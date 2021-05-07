@@ -15,10 +15,10 @@ router.post('/oauth', async (req, res, next) => {
   try {
     const { apiUrl, access_token } = req.fields;
     const { data } = await getUserData(apiUrl, access_token); //get userData from google api
-    const { email, name, user_image } = data;
+    const { email, name } = data;
 
     const query = { email },
-      update = { name, email, user_image, auth_scope: 'oauth' },
+      update = { name, email, auth_scope: 'oauth' },
       options = { new: true, upsert: true, setDefaultsOnInsert: true };
     const docs = await user_model.findOneAndUpdate(query, update, options);
 
