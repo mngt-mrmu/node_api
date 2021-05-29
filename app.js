@@ -24,10 +24,12 @@ app.use(express.static(__dirname + '/views'));
 const userRoute = require('./routes/user');
 const productRoute = require('./routes/product');
 const orderRoute = require('./routes/order');
+const keywordRoute = require('./routes/keyword');
 
 app.use('/user', userRoute);
 app.use('/product', productRoute);
 app.use('/order', orderRoute);
+app.use('/keyword', keywordRoute);
 
 //Creating Server
 const port = process.env.PORT || 5000;
